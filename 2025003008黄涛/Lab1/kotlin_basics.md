@@ -207,7 +207,7 @@ Package for zhangwei will arrive, tracking ID: 20231042.
 ```kotlin
 fun main(){
     val huangtaoDelivery = "2025003008"
- 	println("Package for"+" haungtao"+" will arrive,tracking ID:"+"$huangtaoDelivery")
+ 	println("Package for huangtao will arrive,tracking ID:"+"$huangtaoDelivery")
 }
 ```
 
@@ -243,7 +243,7 @@ fun main(){
     val bonus = 8
     val total = score + bonus
     println("Name: $studentName")
-    println("Score: ${"%02d".format(score)},"+" Bonus:$bonus") //因为kotlin中在整数前不能使用前导0，所以使用进行字符格式化
+    println("Score: ${"%02d".format(score)}, Bonus:$bonus") //因为kotlin中在整数前不能使用前导0，所以使用进行字符格式化
     println("Total:$total")
 }
 ```
@@ -308,11 +308,11 @@ Happy Birthday, zhangwei! You are now 4 years old!
 
 ```kotlin
 fun main() {
-    println(zhangweiGreeting(age = 8))       // A 替换为你学号最后一位
-    println(zhangweiGreeting("黄涛", 0))   // [姓名] 替换为你的姓名拼音，B 替换为学号倒数第二位
+    println(huangtaoGreeting(age = 8))       // A 替换为你学号最后一位
+    println(huangtaoGreeting("黄涛", 0))   // [姓名] 替换为你的姓名拼音，B 替换为学号倒数第二位
 }
 
-fun zhangweiGreeting(name: String = "2025003008", age: Int): String {
+fun huangtaoGreeting(name: String = "2025003008", age: Int): String {
    	return "Happy Birthday, $name ! You are now $age years old!"
 }
 ```
@@ -327,15 +327,15 @@ fun zhangweiGreeting(name: String = "2025003008", age: Int): String {
 
 ```kotlin
 fun main() {
-    val Steps = 4000                                      // 改为 AB * 100
-    val caloriesBurned = PEDOMETERstepsTOcalories(Steps)
-    println("Walking $Steps steps burns $caloriesBurned calories")
+    val steps = 8 * 100
+    val caloriesBurned = pedometerStepsToCalories(steps)
+    println("Walking $steps steps burns $caloriesBurned calories")
 }
 
-fun PEDOMETERstepsTOcalories(NumberOFStepS: Int): Double {
-    val CaloriesBURNEDforEachStep = 0.04
-    val TotalCALORIESburned = NumberOFStepS * CaloriesBURNEDforEachStep
-    return TotalCALORIESburned
+fun pedometerStepsToCalories(numberOfSteps: Int): Double {
+    val caloriesBurnedForEachStep = 0.04
+    val totalCaloriesBurned = numberOfSteps * caloriesBurnedForEachStep
+    return totalCaloriesBurned
 }
 ```
 
