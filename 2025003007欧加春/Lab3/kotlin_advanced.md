@@ -1,3 +1,4 @@
+
 # Lab3：Kotlin 进阶语法练习
 
 ## 实验背景
@@ -81,6 +82,9 @@ fun printNotificationSummary(numberOfMessages: Int) {
         println("Your phone is blowing up! You have 99+ notifications.")
     }
 }
+```
+
+---
 
 ## 题目 2：电影票价格
 
@@ -144,6 +148,9 @@ fun ticketPrice(age: Int, isMonday: Boolean): Int {
         else -> 20
     }
 }
+```
+
+---
 
 ## 题目 3：温度转换器
 
@@ -208,6 +215,9 @@ fun printFinalTemperature(
     val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement))
     println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
 }
+```
+
+---
 
 ## 题目 4：歌曲目录
 
@@ -248,6 +258,9 @@ fun main() {
     song.printDescription()
     println("Is popular: ${song.isPopular}")
 }
+```
+
+---
 
 ## 题目 5：互联网个人资料
 
@@ -313,6 +326,9 @@ class Person(val name: String, val age: Int, val hobby: String?, val referrer: P
         println("Likes to $hobbyStr. $referrerStr\n")
     }
 }
+```
+
+---
 
 ## 题目 6：可折叠手机
 
@@ -393,6 +409,9 @@ fun main() {
     foldable.switchOn() // 展开状态 → 开屏
     foldable.checkPhoneScreenLight()
 }
+```
+
+---
 
 ## 题目 7：特别拍卖
 
@@ -442,6 +461,9 @@ fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
     // 空安全处理：有出价返回出价，无返回底价
     return bid?.amount ?: minimumPrice
 }
+```
+
+---
 
 ## 参考资料
 
