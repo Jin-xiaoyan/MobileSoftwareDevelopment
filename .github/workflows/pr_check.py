@@ -25,7 +25,7 @@ KIMI_KEY = os.environ.get("KIMI_API_KEY", "")
 GH_TOKEN = os.environ["GH_TOKEN"]
 REPO = os.environ["REPO"]
 HEAD_SHA = os.environ["HEAD_SHA"]
-
+PAT_TOKEN = os.environ.get("PAT_TOKEN", "")
 API = "https://api.github.com"
 GH = {
     "Authorization": f"Bearer {GH_TOKEN}",
@@ -209,19 +209,19 @@ def ready_pr():
         json={"query": query, "variables": {"prId": node_id}}
     )
     print("  ✓ 已将 Draft PR 转为 Ready for review")
+
 def merge_pr():
-    # 检查 token 权限
-    r_check = requests.get(f"{API}/repos/{REPO}", headers=GH)
-    permissions = r_check.json().get("permissions", {})
-    print(f"  [debug] repo permissions={permissions}")
-    
-    r = requests.put(f"{API}/repos/{REPO}/pulls/{PR_NUMBER}/merge", headers=GH, json={
+    headers = {
+        "Authorization": f"Bearer {PAT_TOKEN}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    r = requests.put(f"{API}/repos/{REPO}/pulls/{PR_NUMBER}/merge", headers=headers, json={
         "merge_method": "merge",
         "commit_title": f"[自动合并] {PR_TITLE}",
     })
     print(f"  [debug] merge status={r.status_code}, body={r.text}")
     return r.status_code == 200
-
 def close_pr():
     gh_patch(f"/repos/{REPO}/pulls/{PR_NUMBER}", {"state": "closed"})
 
